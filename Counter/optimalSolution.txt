@@ -1,0 +1,33 @@
+// An object to store the current count for each counter ID
+const counters = {};
+
+/**
+ * Updates the displayed value of the element with the specified ID.
+ */
+function updateDisplay(id) {
+  const element = document.getElementById(id);
+  if (!element) {
+    console.error(`Element with id '${id}' not found.`);
+    return;
+  }
+  element.innerText = counters[id];
+}
+
+/**
+ * Increments the counter associated with the given ID.
+ */
+function increment(id) {
+  // Initialize the counter for this ID if it doesn't exist yet
+  if (!(id in counters)) counters[id] = 0;
+  counters[id]++;
+  updateDisplay(id);
+}
+
+/**
+ * Decrements the counter associated with the given ID.
+ */
+function decrement(id) {
+  if (!(id in counters)) counters[id] = 0;
+  counters[id]--;
+  updateDisplay(id);
+}

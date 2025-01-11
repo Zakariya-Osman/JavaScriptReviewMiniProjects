@@ -1,0 +1,45 @@
+// Cache references to elements
+const inputTask = document.getElementById("task");
+const btnAdd = document.getElementById("add");
+const btnClear = document.getElementById("clear");
+const tasksUl = document.getElementById("tasks");
+const totalDisplay = document.getElementById("total");
+
+// Add event listeners in JavaScript instead of inline
+btnAdd.addEventListener("click", addTodo);
+btnClear.addEventListener("click", clearAll);
+
+function addTodo() {
+  // Trim the user input to avoid blank spaces
+  const taskText = inputTask.value.trim();
+
+  // Only add if there's something typed
+  if (taskText) {
+    // Create a new <li> and set its text
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    // Append the new <li> to the <ul>
+    tasksUl.appendChild(li);
+
+    // Clear the input field
+    inputTask.value = "";
+
+    // Update the task count
+    updateTaskCount();
+  }
+}
+
+function clearAll() {
+  // Remove all tasks
+  tasksUl.innerHTML = "";
+
+  // Update the task count
+  updateTaskCount();
+}
+
+function updateTaskCount() {
+  // Count how many <li> elements are in #tasks
+  const count = tasksUl.querySelectorAll("li").length;
+  totalDisplay.textContent = count;
+}

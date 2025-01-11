@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="index.js"></script>
+    <title>Todo</title>
     <style>
       ul {
         list-style-type: disc;
         margin: 0;
         padding: 0 1rem;
       }
-
+      /* Hide empty <li> if you keep placeholders, otherwise not needed */
       li:empty {
         display: none;
       }
@@ -21,13 +20,13 @@
     <section>
       <h1>Todo</h1>
       <input type="text" id="task" />
-      <button id="add" OnClick="addTodo();">Add</button>
-      <ul id="tasks">
-        <li id="list"></li>
-      </ul>
+      <button id="add">Add</button>
+      <ul id="tasks"></ul>
       <hr />
-      <button id="clear" OnClick="clearAll()">Clear</button>
+      <button id="clear">Clear</button>
       <p><span id="total">0</span> total tasks</p>
     </section>
+
+    <script src="index.js"></script>
   </body>
 </html>

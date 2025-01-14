@@ -28,8 +28,9 @@ function getPokemonData() {
         // types: data.types,
         sprites: data.sprites.front_default, // Correct the typo
       };
-      console.log(pokemonInfo);
-      return pokemonInfo;
+      document.getElementById("pokemonName").textContent = pokemonInfo.name;
+      document.getElementById("pokemonImage").src = pokemonInfo.sprites;
+      document.getElementById("pokemonImage").alt = pokemonInfo.name + " image";
     })
     .catch((error) => console.error("Error: ", error));
 }
